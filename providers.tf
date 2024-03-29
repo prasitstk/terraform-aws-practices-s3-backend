@@ -7,14 +7,14 @@ terraform {
   }
 
   # backend "s3" {
-  #   bucket         = "terraform-backend-thoafoodoh8tiqu5xit0"
+  #   bucket         = "terraform-backend-<random-string>"
   #   region         = "ap-southeast-1"
   #   key            = "test1/remote_terraform.tfstate"
 
   #   # NOTE: `encrypt = true` as a second layer in addition to `backend_bucket_sse` to ensure that the state file is always encrypted on the S3 bucket.
   #   encrypt        = true
 
-  #   dynamodb_table = "terraform-backend-state-lock-thoafoodoh8tiqu5xit0"
+  #   dynamodb_table = "terraform-backend-state-lock-<random-string>"
   # }
 }
 
