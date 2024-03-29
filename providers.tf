@@ -14,7 +14,7 @@ terraform {
   #   # NOTE: `encrypt = true` as a second layer in addition to `backend_bucket_sse` to ensure that the state file is always encrypted on the S3 bucket.
   #   encrypt        = true
 
-  #   dynamodb_table = "terraform-backend-state-lock-<random-string>"
+  #   dynamodb_table = "terraform-backend-state-locking"
   # }
 }
 
