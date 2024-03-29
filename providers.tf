@@ -9,7 +9,7 @@ terraform {
   # backend "s3" {
   #   bucket         = "terraform-backend-<random-string>"
   #   region         = "ap-southeast-1"
-  #   key            = "test1/remote_terraform.tfstate"
+  #   key            = "test/remote_terraform.tfstate"
 
   #   # NOTE: `encrypt = true` as a second layer in addition to `backend_bucket_sse` to ensure that the state file is always encrypted on the S3 bucket.
   #   encrypt        = true
