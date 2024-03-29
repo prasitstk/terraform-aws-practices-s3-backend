@@ -11,3 +11,6 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     && sudo ./aws/install \
     && rm -f awscliv2.zip \
     && rm -rf aws
+
+# Install other utilities
+RUN sudo apt-get install -y pwgen

@@ -18,6 +18,32 @@ A template repository for Terraform project for AWS infrastructure.
 
 <TODO: Describe each steps starting from initiating the Terraform project until to creating all of the resources.>
 
+```sh
+pwgen 20 1 -A
+
+# backend "s3" is still commented.
+# "aws_s3_bucket" "main_bucket" is still commented.
+
+terrform init
+terraform plan -out /tmp/tfplan
+terraform apply /tmp/tfplan
+
+# Uncomment backend "s3".
+
+terraform init -backend-config=backend.tfvars
+
+# Uncomment "aws_s3_bucket" "main_bucket".
+
+terraform plan -out /tmp/tfplan
+terraform apply /tmp/tfplan
+
+# Comment backend "s3".
+
+terraform init -migrate-state
+terraform plan -out /tmp/tfplan
+terraform destroy
+```
+
 ---
 
 ## Verification
