@@ -53,8 +53,8 @@ Later if you would like to destroy the entire stack including both S3 bucket and
 Now let's start with creating the remote backend resources on AWS and save the state locally. On `providers.tf`, make sure that `backend "s3"` block is still commented and run the following commands to initialize the project, plan, and apply the backend resource creation into the local state file by:
 
 ```sh
-# Make sure `backend "s3"` block is still commented.
-terrform init
+# Make sure `backend "s3"` block on `providers.tf` is still commented.
+terraform init
 terraform plan -out /tmp/tfplan
 terraform apply /tmp/tfplan
 ```
@@ -62,7 +62,7 @@ terraform apply /tmp/tfplan
 You should see that `terraform.tfstate` file is created with the state information responding to the newly created backend resources. Then we go to the next step to move that local state file into S3 bucket by uncommenting the `backend "s3"` block on `providers.tf` file and run the following command:
 
 ```sh
-# Uncomment backend "s3" block. Then:
+# Uncomment backend "s3" block on `providers.tf`. Then:
 terraform init -backend-config=backend.tfvars
 ```
 
@@ -71,7 +71,7 @@ Notice that the content in the `terraform.tfstate` will be copied into the `test
 To verify that the remote state file is working, attempt to create a new working resource in the stack. Navigate to `main.tf` and uncomment `"aws_s3_bucket" "main_bucket"` block. Then run the following commands:
 
 ```sh
-# Uncomment "aws_s3_bucket" "main_bucket".
+# Uncomment "aws_s3_bucket" "main_bucket" on `main.tf`.
 terraform plan -out /tmp/tfplan
 terraform apply /tmp/tfplan
 ```
@@ -89,7 +89,7 @@ Expected outcomes:
 To clean up the entire stack including all of the remote backend and working resources, as I mentioned before, we need to comment out the `backend "s3"` block on `providers.tf` file and then copy the Terraform state information back to your local disk by:
 
 ```sh
-# Comment backend "s3" block.
+# Comment backend "s3" block on `providers.tf`.
 terraform init -migrate-state
 ```
 
